@@ -1,6 +1,6 @@
 # Project Writeup: AWS Hybrid Networking (Transit Gateway Hub-and-Spoke)
 
-Why this exists, how it was built, why each choice, and the benefits. Also the interview talking-track. This maps closely to the AWS Advanced Networking Specialty domains.
+Why this exists, how it was built, why each choice, and the benefits. This maps closely to the AWS Advanced Networking Specialty domains.
 
 ## 1. The problem it solves
 
@@ -34,7 +34,7 @@ The whole thing passes terraform validate.
 - Working hybrid DNS in both directions.
 - Traffic is observable and auditable through flow logs and Athena.
 
-## 5. Interview talking points
+## 5. Design notes and trade-offs
 
 - Why TGW over peering: transitivity, central control, and route-table segmentation; peering is non-transitive and O(n squared) to mesh.
 - How spoke isolation works here: spokes associate to the spokes route table whose only route is a default to egress, so they never learn each other's routes.
